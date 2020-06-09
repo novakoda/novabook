@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def index
   end
 
@@ -16,5 +16,6 @@ class UserController < ApplicationController
     else
       flash[:alert] = 'Already sent friend request'
     end
+    redirect_to home_path
   end
 end
