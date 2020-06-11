@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'users', to: 'devise/registrations#create', as: 'new_user'
 
   get 'notifications', to: 'users#notifications', as: 'notification'
+  get 'friendship/:friendship_id', to: 'users#befriend', as: 'friendship'
 
   get 'users/:requestee_id/friend_request', to: 'users#friend_request', as: 'request'
 

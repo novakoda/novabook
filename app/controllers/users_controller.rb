@@ -19,8 +19,26 @@ class UsersController < ApplicationController
     redirect_to home_path
   end
 
+  def befriend
+    f = FriendRequest.find(params[:friendship_id])
+    if f.requestee == current_user && get_all_friends.none?(f.requester)
+      friendship = current_user.friendships.new
+      friendship.one = current_user
+      friendship.two = f.requester
+      friendship.save
+      f.destroy
+    end
+    redirect_to home_path
+  end
+
   def notifications
     @sent_requests = current_user.out_friend_requests
     @incoming_requests = current_user.in_friend_requests
   end
+
+  private
+
+    def get_all_friends
+      current_user.friendships.map{ |f| f.two }
+    end
 end

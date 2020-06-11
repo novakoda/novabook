@@ -2,10 +2,19 @@
 <% if @user == current_user %>
   <%= link_to 'Edit Profile', edit_user_registration_path %>
 <% else %>
+  <!-- //# TODO: change if already friends -->
   <% unless current_user.out_friend_requests.any?{ |f| f.requestee_id.to_i == @user.id.to_i } %>
     <%= link_to 'Add as Friend', request_path(@user) %>
   <% else %>
     <p>Friend Request Pending</p>
+  <% end %>
+<% end %>
+<h3>Friends</h3>
+<% @user.friendships.each do |f| %>
+  <% if @user.id == f.one.id %>
+    <%= link_to "#{f.two.full_name}", "/users/#{f.two.id}" %>
+  <% else %>
+    <%= link_to "#{f.one.full_name}", "/users/#{f.one.id}" %>
   <% end %>
 <% end %>
 <h3>Posts</h3>
