@@ -3,7 +3,7 @@
   <%= link_to 'Edit Profile', edit_user_registration_path %>
 <% else %>
   <% unless current_user.out_friend_requests.any?{ |f| f.requestee_id.to_i == @user.id.to_i } %>
-    <%= link_to 'Add as Friend', user_url(@user)+"/friend_request" %>
+    <%= link_to 'Add as Friend', request_path(@user) %>
   <% else %>
     <p>Friend Request Pending</p>
   <% end %>

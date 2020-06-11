@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post 'users', to: 'devise/registrations#create', as: 'new_user'
 
+  get 'notifications', to: 'users#notifications', as: 'notification'
+
   get 'users/:requestee_id/friend_request', to: 'users#friend_request', as: 'request'
 
   get 'users/:id', to: 'users#show', as: 'user'

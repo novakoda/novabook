@@ -18,4 +18,9 @@ class UsersController < ApplicationController
     end
     redirect_to home_path
   end
+
+  def notifications
+    @sent_requests = current_user.out_friend_requests
+    @incoming_requests = current_user.in_friend_requests
+  end
 end
