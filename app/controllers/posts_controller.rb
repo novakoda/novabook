@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @post = current_user.posts.new
   end
 
   # GET /posts/1

@@ -18,6 +18,9 @@
   <% end %>
 <% end %>
 <h3>Posts</h3>
+<% if @user == current_user %>
+  <%= render 'shared/post_form' %>
+<% end %>
 <% @user.posts.each do |post| %>
     <strong><%= post.title %></strong>
     <p><%= post.body %></p>
