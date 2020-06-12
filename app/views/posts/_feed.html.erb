@@ -1,0 +1,15 @@
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, post %></h3>
+  <p><%= post.body %></p>
+  <p>by <%= post.user.full_name %></p>
+  <p>
+    <%= post.likes.count %> likes
+  </p>
+  <% unless current_user.liked_posts.include? post %>
+    <%= button_to 'Like', like_path(post) %>
+  <% end %>
+  <% if post.user == current_user %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+    <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>

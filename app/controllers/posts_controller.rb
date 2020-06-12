@@ -53,6 +53,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:id])
+    unless current_user.liked_posts.include? @post
+      @post.likes << current_user.likes.build
+    end
+    redirect_to @post
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
