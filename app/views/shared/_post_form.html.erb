@@ -1,6 +1,0 @@
-<%= simple_form_for(@post) do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id  %>
-  <%= f.input :title, placeholder: "Create a title" %>
-  <%= f.input :body, placeholder: "What's on your mind?" %>
-  <%= f.button :submit %>
-<% end %>
