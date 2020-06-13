@@ -5,8 +5,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-    @post = current_user.posts.new
+    if user_signed_in?
+      @posts = Post.where(id: current_user.friends.ids)
+      @post = current_user.posts.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /posts/1
