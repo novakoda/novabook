@@ -7,6 +7,8 @@
   </p>
   <% unless current_user.liked_posts.include? post %>
     <%= button_to 'Like', like_path(post) %>
+  <% else %>
+    <%= button_to 'Unlike', unlike_path(post), method: :delete %>
   <% end %>
   <% if post.user == current_user %>
     <%= link_to 'Edit', edit_post_path(post) %>

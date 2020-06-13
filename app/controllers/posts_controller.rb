@@ -61,6 +61,15 @@ class PostsController < ApplicationController
     redirect_to @post
   end
 
+  def unlike
+    @post = Post.find(params[:id])
+    @like = Like.where(user_id: current_user.id, post_id: @post.id).first
+    if current_user.likes.include? @like
+      @like.destroy
+    end
+    redirect_to @post
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
