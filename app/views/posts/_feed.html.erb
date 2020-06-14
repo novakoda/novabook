@@ -1,7 +1,9 @@
 <% @posts.each do |post| %>
+  <p><%= link_to post.user.full_name, post.user %></p>
+  <%= image_tag @user.avatar.url(:thumb) %>
   <h3><%= link_to post.title, post %></h3>
   <p><%= post.body %></p>
-  <p>by <%= post.user.full_name %></p>
+
   <p>
     <%= post.likes.count %> likes
   </p>
