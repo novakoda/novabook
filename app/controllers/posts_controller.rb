@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(id: current_user.friends.ids)
+    ids = current_user.friends.ids << current_user.id
+    @posts = Post.where(id: ids)
     @post = current_user.posts.new
   end
 

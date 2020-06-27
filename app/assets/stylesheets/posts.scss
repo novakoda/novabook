@@ -1,3 +1,76 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.post-section {
+  border: 1px solid black;
+  max-width: 800px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.post-form {
+  display: flex;
+}
+
+.media-left {
+  flex: 1;
+}
+
+.media-content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 7px;
+}
+
+.media-content button {
+  align-self: flex-end;
+  border: 1px solid red !important;
+}
+
+.feed-item {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid grey !important;
+  border-top: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.feed-post-container {
+  display: flex;
+}
+
+.feed-post-user {
+  flex: 1;
+}
+
+.feed-post-content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.feed-post-content h3 {
+  font-weight: bold;
+}
+.feed-post-content footer {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.edit {
+  display: inline;
+}
+
+.likes {
+  align-self: flex-end;
+  display: inline;
+  float: right;
+}

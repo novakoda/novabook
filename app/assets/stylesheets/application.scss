@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+ @import "bulma";
+
+.navbar {
+  background-color: darkslateblue !important;
+  width: 100%;
+  display: flex;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-size: 23px;
+  font-weight: 800;
+  flex: 3;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.navbar a {
+  color: white;
+}
+
+.button .is-link {
+  background-color: mediumslateblue !important;
+}
